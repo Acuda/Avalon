@@ -4226,12 +4226,10 @@ function speedwalk_list(spd)
     for name, way in pairsByKeys(speedwalklist) do
       i = i + 1
       msg = msg..'\t'..name
-      if (configtbl.settings.SafeSpeedwalks == 1) then
-        if (stations[name]) then
-          msg = msg..' (sicher)'
-        else
-          msg = msg..' (unsicher)'
-        end
+      if (speedwalksafety[name]) then
+        msg = msg..' (sicher)'
+      else
+        msg = msg..' (unsicher)'
       end
       msg = msg..'\n'
     end
@@ -4246,12 +4244,10 @@ function speedwalk_list(spd)
       if (string.lower(sname[1]) == spd) then
         i = i + 1
         msg = msg..'\t'..name
-        if (configtbl.settings.SafeSpeedwalks == 1) then
-          if (stations[name]) then
-            msg = msg..' (sicher)'
-          else
-            msg=msg..' (unsicher)'
-          end
+        if (speedwalksafety[name]) then
+          msg = msg..' (sicher)'
+        else
+          msg=msg..' (unsicher)'
         end
         msg = msg..'\n'
       end

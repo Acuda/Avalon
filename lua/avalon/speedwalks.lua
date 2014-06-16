@@ -249,3 +249,7 @@ speedwalklist.alo_papierfalter="s o so sw sw s s sw sw sw sw sw sw"
 speedwalklist.papierfalter_alo="no no no no no no n n no no nw w n"
 speedwalklist.wtoe_htoe="so so so so so so so so so so so s s s s s s s s so s sw s s s s s s s s sw sw sw sw sw sw sw s s s s s s sw sw s w w w w w w"
 speedwalklist.htoe_wtoe="o o o o o o n no no n n n n n n no no no no no no no n n n n n n n n no n nw n n n n n n n n nw nw nw nw nw nw nw nw nw nw nw"
+speedwalksafety={}
+for name,way in pairs(speedwalklist) do
+speedwalksafety[name]=false
+end

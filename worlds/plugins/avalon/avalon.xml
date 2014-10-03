@@ -409,6 +409,32 @@
   <send>OnAvalonLogin()</send>
   </trigger>
   <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Du faellst vor der Leiche auf die Knie, legst Dein Ankh auf den leblosen"
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Clerics/Resurrect_Start.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Deine Bemuehungen waren erfolgreich. * schlaegt*"
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Clerics/Resurrect_Success.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Du schlaegst Deine Augen auf und versuchst etwas zu sagen."
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Clerics/Resurrect_Success.ogg")</send>
+  </trigger>
+  <trigger
    enabled="y"
    match="KRAACK. Uh, oh. Das klang nicht gut. Vielleicht solltest Du *"
    sequence="102"

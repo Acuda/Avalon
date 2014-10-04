@@ -411,6 +411,61 @@
   <trigger
    enabled="n"
    group="Kleriker"
+   match="Du schliesst Deine Augen und atmest tief durch."
+   send_to="12"
+   sequence="99"
+  >
+  <send>psnd("Clerics/Meditation1.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Du ziehst die Kapuze Deiner Robe weit ueber den Kopf und faltest Deine"
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Clerics/Meditation2.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="^Leise summst Du ein Mantra, das Dir zu neuer Kraft verhilft.$|^Du summst: Ooooohhhhhmmmmmm......$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Clerics/Hum/"..math.random(1,4)..".ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Deine Ordenskette leuchtet schwach auf."
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Clerics/Meditation4.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Du beginnst zu meditieren."
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Clerics/Meditation5.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Langsam wachst Du wieder auf."
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Clerics/MeditationOff.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
    match="Du faellst vor der Leiche auf die Knie, legst Dein Ankh auf den leblosen"
    send_to="12"
    sequence="100"

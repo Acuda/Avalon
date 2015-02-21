@@ -466,6 +466,15 @@
   <trigger
    enabled="n"
    group="Kleriker"
+   match="Du nimmst ein Stueck Kohle und beginnst, ein schwarzes Ankh auf Dein*"
+   send_to="12"
+   sequence="99"
+  >
+  <send>psnd("Clerics/Armor1.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
    match="Du faellst vor der Leiche auf die Knie, legst Dein Ankh auf den leblosen"
    send_to="12"
    sequence="100"

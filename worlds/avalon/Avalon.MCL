@@ -301,28 +301,24 @@
    date_saved="2013-10-23 09:29:43"
   >
 
-  <key name="0" >
-  <send>l</send>
-  </key>
-
-  <key name="5" >
-  <send>wer</send>
-  </key>
-
   <key name="/" >
-  <send>blink</send>
+  <send>ksp</send>
   </key>
 
   <key name="*" >
   <send>sp</send>
   </key>
 
-  <key name="-" >
-  <send>h</send>
+  <key name="5" >
+  <send>bl</send>
   </key>
 
-  <key name="+" >
-  <send>r</send>
+  <key name="0" >
+  <send>b</send>
+  </key>
+
+  <key name="." >
+  <send>wer</send>
   </key>
 
   <key name="Ctrl+0" >

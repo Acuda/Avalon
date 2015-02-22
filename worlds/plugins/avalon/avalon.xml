@@ -508,11 +508,77 @@
   </trigger>
   <trigger
    enabled="y"
+   match="Du holst kraeftig mit Deiner Angel aus und wirfst den Koeder weit *"
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Fishing/FishCast.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Das muss ein .* Fisch sein, der da angebissen hat."
+   send_to="12"
+   sequence="100"
+   regexp="y"
+  >
+  <send>psnd("Fishing/Fish.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Mist. Du stellst Dich viel zu ungeschickt an, .*"
+   send_to="12"
+   sequence="100"
+   regexp="y"
+  >
+  <send>psnd("Fishing/FishEscape.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Du hast einen schoenen Fisch geangelt."
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Fishing/FishCatch.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Du ziehst mit Leibeskraeften an der Angel, um den Fisch aus dem Wasser zu"
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Fishing/FishLinePull.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Dein blaeulich-silberner, getragener Ring entfaltet nun seine Wirkung."
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Misc/Rings/Bonus.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Dein blaeulich-silberner, getragener Ring leuchtet kurz auf."
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Misc/Rings/Bonus.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
    match="Gratulation! Du hast eine Tagesaufgabe geloest."
    send_to="12"
    sequence="100"
   >
   <send>psnd("Misc/DailyTask.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Besonderes Glueck!"
+   send_to="12"
+   sequence="100"
+  >
+  <send>psnd("Misc/DayGift.ogg")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -548,41 +614,51 @@
   </trigger>
   <trigger
    enabled="y"
-   match="Dein heiliges, gefuehrtes Schwert leuchtet nur noch ganz schwach."
+   match=".* heiliges, gefuehrtes Schwert leuchtet nur noch ganz schwach."
    send_to="12"
    sequence="100"
+   regexp="y"
+   omit_from_output="y"
   >
   <send>psnd("Weapons/holy_sword/weak.ogg")</send>
   </trigger>
   <trigger
    enabled="y"
-   match="Dein heiliges, gefuehrtes Schwert leuchtet auf."
+   match=".* heiliges, gefuehrtes Schwert leuchtet auf."
    send_to="12"
    sequence="100"
+   regexp="y"
+   omit_from_output="y"
   >
   <send>psnd("Weapons/holy_sword/light_up.ogg")</send>
   </trigger>
   <trigger
    enabled="y"
-   match="Dein heiliges, gefuehrtes Schwert erstrahlt kurz."
+   match=".* heiliges, gefuehrtes Schwert erstrahlt kurz."
    send_to="12"
    sequence="100"
+   regexp="y"
+   omit_from_output="y"
   >
   <send>psnd("Weapons/holy_sword/shine.ogg")</send>
   </trigger>
   <trigger
    enabled="y"
-   match="Dein heiliges, gefuehrtes Schwert blitzt auf."
+   match=".* heiliges, gefuehrtes Schwert blitzt auf."
    send_to="12"
    sequence="100"
+   regexp="y"
+   omit_from_output="y"
   >
   <send>psnd("Weapons/holy_sword/flash.ogg")</send>
   </trigger>
   <trigger
    enabled="y"
-   match="Dein heiliges, gefuehrtes Schwert strahlt auf und blendet Dich."
+   match=".* heiliges, gefuehrtes Schwert strahlt auf und blendet Dich."
    send_to="12"
    sequence="100"
+   regexp="y"
+   omit_from_output="y"
   >
   <send>psnd("Weapons/holy_sword/shine_blind.ogg")</send>
   </trigger>
@@ -1203,11 +1279,10 @@
   <trigger
    enabled="y"
    match="Du hast einen neuen Brief von * bekommen."
-   omit_from_output="y"
    sequence="100"
    send_to="12"
   >
-  <send>psnd("Misc/Post.ogg")</send>
+  <send>psnd("Misc/Post"..math.random(1,2)..".ogg")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -1566,6 +1641,15 @@
   </trigger>
   <trigger
    enabled="y"
+   match="* folgt Dir."
+   omit_from_output="y"   
+   sequence="100"
+   send_to="12"
+  >
+  <send>psnd("Smith/Following.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
    match=".* heilige Aura loest sich auf.|Die heilige Aura von .* loest sich auf."
    regexp="y"
    sequence="100"
@@ -1584,7 +1668,7 @@
   <trigger
    enabled="n"
    group="Runenschmiede"
-   match="Auf * lodert eine kleine Flamme kurz auf."
+   match="Auf * lodert eine kleine Flamme kurz auf.|Das Feuer hinterlaesst tiefe, gluehende Spuren auf *"
    sequence="100"
    send_to="12"
   >
@@ -1775,7 +1859,7 @@
   </trigger>
   <trigger
    enabled="y"
-   match="^Du erhebst .*angriff.*$|^.* erhebt .*angriff.*$|^.* greift .* mit .* an.$|^.*Angriff auf.*$"
+   match="^Du erhebst.*angriff.*$|^.*erhebt.*angriff.*$|^.*greift.*mit.*an.$|^.*Angriff auf.*$"
    ignore_case="y"
    regexp="y"
    sequence="100"
@@ -1810,7 +1894,7 @@
   </trigger>
   <trigger
    enabled="y"
-   match="Ein grosser Lichtbogen breitet sich ueber Deinem Kopf aus."
+   match="Ein grosser Lichtbogen breitet sich ueber * Kopf aus."
    sequence="100"
    send_to="12"
   >
@@ -1819,7 +1903,7 @@
   </trigger>
   <trigger
    enabled="y"
-   match="Du faengst an, mit * zu faellen."
+   match="Du faengst an, mit * zu faellen.|* faengt an, mit * zu faellen"
    sequence="100"
    send_to="12"
   >
@@ -1970,7 +2054,7 @@
   </trigger>
   <trigger
    enabled="y"
-   match="Du loeschst.*|.*loescht.*|.*erlischt."
+   match="Du loeschst.*|.*loescht.*|.*erlischt.|.*erloeschen."
    regexp="y"
    sequence="100"
    send_to="12"
@@ -2184,7 +2268,7 @@
   </trigger>
   <trigger
    enabled="y"
-   match="Super! Mit praezisen Schnitten weidest Du * aus."
+   match="Super! Mit praezisen Schnitten weidest Du *"
    sequence="100"
    send_to="12"
   >
@@ -2278,7 +2362,7 @@
   </trigger>
   <trigger
    enabled="y"
-   match="Du nimmst einen grossen Schluck *"
+   match="Du nimmst einen * Schluck *"
    sequence="101"
    send_to="12"
   >
@@ -2319,11 +2403,19 @@
   </trigger>
   <trigger
    enabled="y"
-   match="Ein schwarzes Mondtor steigt aus dem Boden empor."
+   match="Ein * Mondtor steigt aus dem Boden empor."
    sequence="100"
    send_to="12"
   >
   <send>psnd("Portal/create.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Ein * Mondtor verschwindet wieder spurlos im Boden."
+   sequence="100"
+   send_to="12"
+  >
+  <send>psnd("Portal/quake.ogg")</send>
   </trigger>
   <trigger
    enabled="n"
@@ -3185,7 +3277,7 @@
   </trigger>
   <trigger
    enabled="y"
-   match=".* gibt Dir .* (Lapis|Obsidian).*"
+   match=".* gibt Dir .* (Lapis|Obsidian|Konochen).*"
    regexp="y"
    sequence="99"
    send_to="12"
@@ -3287,7 +3379,7 @@
   </trigger>
   <trigger
    enabled="y"
-   match="Du greifst * mit * an."
+   match="Du greifst * mit *"
    sequence="100"
    send_to="12"
   >
@@ -3458,38 +3550,38 @@
   >
   <send>psnd("Weapons/waldtraene/"..math.random(1,8)..".ogg")</send>
   </trigger>
-<trigger
+  <trigger
    match="In einem unkonzentrierten Moment verlierst Du Deinen Halt und rutschst ab."
+   enabled="y"
    sequence="100"
    send_to="12"
-   enabled="y"
   >
   <send>speedwalk_breaklegs()</send>
   </trigger>
-<trigger
+  <trigger
    match="Du findest wieder festen Halt."
    enabled="y"
    sequence="100"
    send_to="12"
   >
   <send>speedwalk_break()</send>
-</trigger>
-<trigger
+  </trigger>
+  <trigger
    match="'Waldtraene' zittert in Deiner Hand. Du fuerchtest, sie koennte zerbersten!"
    enabled="y"
    sequence="100"
    send_to="12"
   >
   <send>psnd("Player/waldtraene/vibration.ogg")</send>
-</trigger>
-<trigger
+  </trigger>
+  <trigger
    enabled="y"
    match="Jemand klopft von draussen laut gegen die Tuer!"
    sequence="100"
    send_to="12"
   >
   <send>psnd("Misc/DoorKnock.ogg")</send>
-</trigger>
+  </trigger>
 </triggers>
 
 <!--  Aliases  -->
@@ -3930,8 +4022,8 @@ configtbl={}
 configtbl.settings={}
 configtbl.settings.ScreenReader='MushReader'
 configtbl.settings.SoundVolume=100
-configtbl.settings.MusicVolume=50
-configtbl.settings.CombatMusicVolume=50
+configtbl.settings.MusicVolume=10
+configtbl.settings.CombatMusicVolume=10
 configtbl.settings.TPBar=1
 configtbl.settings.SPBar=1
 configtbl.settings.APBar=1
@@ -4062,7 +4154,7 @@ end
 
 OnAvalonRSoul = function(type, message)
   channel, text = string.match(message, "^(%[?%w+%-?%w*%-?%w*%]?) (.*)$")
-  world.Execute(";history_add REDEN="..text)
+  world.Execute(";history_add REDEN="..world.Replace(text,'\n',',',true))
 end
 
 OnAvalonSoul = function(type, message)
@@ -4904,6 +4996,8 @@ world.Accelerator('Numpad6','o')
 world.Accelerator('Numpad7','nw')
 world.Accelerator('Numpad8','n')
 world.Accelerator('Numpad9','no')
+world.Accelerator('Add','r')
+world.Accelerator('Subtract','h')
 else
 world.Accelerator('Numpad1','spaehe kurz sw')
 world.Accelerator('Numpad2','spaehe kurz s')
@@ -4913,6 +5007,8 @@ world.Accelerator('Numpad6','spaehe kurz o')
 world.Accelerator('Numpad7','spaehe kurz nw')
 world.Accelerator('Numpad8','spaehe kurz n')
 world.Accelerator('Numpad9','spaehe kurz no')
+world.Accelerator('Add','spaehe kurz h')
+world.Accelerator('Subtract','spaehe kurz r')
 end
 end
 function NumpadSwitch()

@@ -475,6 +475,60 @@
   <trigger
    enabled="n"
    group="Kleriker"
+   match="Sorgfaeltig malst Du ein T-Kreuz auf *"
+   send_to="12"
+   sequence="99"
+  >
+  <send>psnd("Clerics/Armor2.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Ueber der Gabelung malst Du einen Kreis."
+   send_to="12"
+   sequence="99"
+  >
+  <send>psnd("Clerics/Armor3.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Dabei murmelst Du einige heilige Worte."
+   send_to="12"
+   sequence="99"
+  >
+  <send>psnd("Clerics/Armor4.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Schliesslich streichst Du mit dem Ankh Deiner Kette ueber *"
+   send_to="12"
+   sequence="99"
+  >
+  <send>psnd("Clerics/Armor5.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Das Ankh auf * beginnt, schwach zu leuchten."
+   send_to="12"
+   sequence="99"
+  >
+  <send>psnd("Clerics/ArmorOn.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
+   match="Dein* verliert * magische Kraft."
+   send_to="12"
+   sequence="99"
+  >
+  <send>psnd("Clerics/ArmorOff.ogg")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Kleriker"
    match="Du faellst vor der Leiche auf die Knie, legst Dein Ankh auf den leblosen"
    send_to="12"
    sequence="100"
